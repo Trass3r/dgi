@@ -1,0 +1,36 @@
+{
+	"name": "dgi",
+	"description": "test",
+	"homepage": "https://github.com/Trass3r/dgi",
+	"sourcePaths": ["dgi"],
+	"sourceFiles-windows-x86_64": ["dgi/io/nanojpg.obj"],
+	"importPaths": ["."],
+	"dependencies": {
+	},
+	"systemDependencies": "SDL2",
+	"buildRequirements": ["requireContracts"],
+	"configurations": [
+		{
+			"name": "dgi"
+		},
+		{
+			"name": "test",
+			"sourceFiles": ["test.d"],
+			"targetType": "executable",
+			"targetName": "test",
+			"dependencies": {
+				"derelict-sdl2": "~master"
+			}
+		},
+	],
+	"buildTypes": {
+		"debug": {
+			"buildOptions": ["debugMode", "debugInfo", "unittests"],
+			"dflags-windows-x86_64": ["-L/OPT:REF"]
+		},
+		"release": {
+			"buildOptions": ["releaseMode", "optimize", "inline", "debugInfo", "unittests"],
+			"dflags-windows-x86_64": ["-L/OPT:REF"]
+		}
+	}
+}
